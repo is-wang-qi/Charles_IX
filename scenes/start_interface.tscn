@@ -1,0 +1,227 @@
+[gd_scene load_steps=16 format=3 uid="uid://yk1xk3t1mmgn"]
+
+[ext_resource type="Texture2D" uid="uid://cseqsjg0i7mhg" path="res://assets/Start_Interface/Start_Interface_background.png" id="1_4uosh"]
+[ext_resource type="FontFile" uid="uid://b380qdxpu2fnx" path="res://assets/font/云峰字库重庆山城棒棒体.ttf" id="1_d7v0e"]
+[ext_resource type="Texture2D" uid="uid://srmo71r7v7bq" path="res://assets/Start_Interface/Start_Interface_Charles.png" id="2_lhes6"]
+[ext_resource type="Texture2D" uid="uid://dckv5vd3bjhg4" path="res://assets/Start_Interface/Start_Interface_Dodomo.png" id="3_d6ef4"]
+[ext_resource type="Texture2D" uid="uid://blobmqg7jxh0g" path="res://assets/Start_Interface/Start_Interface_headline.png" id="4_4rg00"]
+[ext_resource type="Texture2D" uid="uid://c8ep8p8hjvwvx" path="res://assets/光晕.png" id="5_3kpmm"]
+[ext_resource type="Texture2D" uid="uid://clcfqgs5j3pv8" path="res://assets/Start_Interface/Start_Interface_section.png" id="5_4i2gg"]
+[ext_resource type="Texture2D" uid="uid://d11vwcdtnrn2w" path="res://assets/Start_Interface/Start_Interface_section_EN.png" id="6_4vkex"]
+[ext_resource type="Texture2D" uid="uid://cwgvev7okts7n" path="res://assets/Start_Interface/Start_Interface_vice-headline.png" id="7_rb0th"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_larag"]
+content_margin_left = 4.0
+content_margin_top = 30.0
+content_margin_right = 4.0
+content_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8p38k"]
+grow_begin = 100.0
+grow_end = 100.0
+thickness = 100
+
+[sub_resource type="Theme" id="Theme_8kjwr"]
+default_font = ExtResource("1_d7v0e")
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 0.45098)
+Button/constants/outline_size = 3
+Button/styles/disabled = SubResource("StyleBoxEmpty_larag")
+Button/styles/focus = SubResource("StyleBoxLine_8p38k")
+Button/styles/hover = SubResource("StyleBoxEmpty_larag")
+Button/styles/normal = SubResource("StyleBoxEmpty_larag")
+Button/styles/pressed = SubResource("StyleBoxEmpty_larag")
+
+[sub_resource type="Animation" id="Animation_s7pn3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_pxe8y"]
+resource_name = "Startup_animation"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(1, 1),
+"points": PackedFloat32Array(1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e1tbu"]
+_data = {
+"RESET": SubResource("Animation_s7pn3"),
+"Startup_animation": SubResource("Animation_pxe8y")
+}
+
+[node name="Start_Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8kjwr")
+
+[node name="背景" type="Node2D" parent="."]
+position = Vector2(1262.17, 537)
+scale = Vector2(1.06106, 1.00185)
+
+[node name="StartInterfaceBackground" type="Sprite2D" parent="背景"]
+position = Vector2(-6.28833, 5.48986)
+scale = Vector2(1.00531, 1.02496)
+texture = ExtResource("1_4uosh")
+
+[node name="StartInterfaceCharles" type="Sprite2D" parent="背景"]
+position = Vector2(-4.87256, 7.98523)
+scale = Vector2(0.942454, 0.998153)
+texture = ExtResource("2_lhes6")
+
+[node name="StartInterfaceDodomo" type="Sprite2D" parent="背景"]
+position = Vector2(9.26428, 24.9539)
+rotation = 0.022885
+scale = Vector2(0.904781, 0.958203)
+skew = -0.00248218
+texture = ExtResource("3_d6ef4")
+
+[node name="StartInterfaceHeadline" type="Sprite2D" parent="背景"]
+position = Vector2(-3.93005, -2.99445)
+scale = Vector2(0.942454, 0.998153)
+texture = ExtResource("4_4rg00")
+
+[node name="StartInterfaceSection" type="Sprite2D" parent="背景"]
+position = Vector2(29.9983, 10.9797)
+scale = Vector2(0.942454, 0.998153)
+texture = ExtResource("5_4i2gg")
+
+[node name="StartInterfaceSectionEn" type="Sprite2D" parent="背景"]
+position = Vector2(38.4803, 2.99445)
+scale = Vector2(0.942454, 0.998153)
+texture = ExtResource("6_4vkex")
+
+[node name="StartInterfaceVice-headline" type="Sprite2D" parent="背景"]
+position = Vector2(13.9766, -3.99261)
+scale = Vector2(0.942454, 0.998153)
+texture = ExtResource("7_rb0th")
+
+[node name="暗角" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="暗角"]
+position = Vector2(-11, -65)
+scale = Vector2(0.955057, 0.937346)
+color = Color(0, 0, 0, 1)
+energy = 0.52
+blend_mode = 2
+texture = ExtResource("5_3kpmm")
+texture_scale = 1.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="暗角"]
+position = Vector2(111, 1207)
+scale = Vector2(0.955057, 0.937346)
+color = Color(0, 0, 0, 1)
+energy = 0.52
+blend_mode = 2
+texture = ExtResource("5_3kpmm")
+texture_scale = 1.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="暗角"]
+position = Vector2(1962, 1004)
+scale = Vector2(0.851653, 0.794522)
+color = Color(0, 0, 0, 1)
+energy = 0.52
+blend_mode = 2
+texture = ExtResource("5_3kpmm")
+texture_scale = 1.5
+
+[node name="PointLight2D4" type="PointLight2D" parent="暗角"]
+position = Vector2(1924.42, 71)
+scale = Vector2(1.04976, 0.876427)
+color = Color(0, 0, 0, 1)
+energy = 0.52
+blend_mode = 2
+texture = ExtResource("5_3kpmm")
+texture_scale = 1.5
+
+[node name="PointLight2D5" type="PointLight2D" parent="暗角"]
+position = Vector2(1120, -29)
+scale = Vector2(2.19106, 0.378954)
+color = Color(0, 0, 0, 1)
+energy = 0.52
+blend_mode = 2
+texture = ExtResource("5_3kpmm")
+texture_scale = 1.5
+
+[node name="PointLight2D6" type="PointLight2D" parent="暗角"]
+position = Vector2(1098, 1185)
+scale = Vector2(1.81374, 0.378954)
+color = Color(0, 0, 0, 1)
+energy = 0.52
+blend_mode = 2
+texture = ExtResource("5_3kpmm")
+texture_scale = 1.5
+
+[node name="v" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 199.0
+offset_top = -280.0
+offset_right = 367.0
+offset_bottom = 281.0
+grow_vertical = 2
+alignment = 1
+
+[node name="ContinueGame" type="Button" parent="v"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "继续游戏"
+
+[node name="NewGame" type="Button" parent="v"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "开始新篇章"
+
+[node name="LoadGame" type="Button" parent="v"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "旧章节"
+
+[node name="SetGame" type="Button" parent="v"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "设置"
+
+[node name="ExitGame" type="Button" parent="v"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "离开游戏"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -25.0
+offset_right = 1953.0
+offset_bottom = 1124.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e1tbu")
+}
+autoplay = "Startup_animation"
